@@ -48,9 +48,9 @@ function convertToCSV(data: any[]) {
         if (!sameMembers(headersReference, headers)) {
           throw new Error('Different amount of fields!');
         }
-        return [...t, Object.values(d)];
+        return [...t, Object.values(d).join(';')];
       },
-      [headersReference]
+      [headersReference.join(';')]
     )
     .join('\n');
 }

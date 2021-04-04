@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import FinTen from 'tsfinance';
-import Filing from 'tsfinance/dist/Filing.interface';
+import { Filing, FinTen } from 'tsfinance';
 import CSV from './CSV';
 
 (async () => {
@@ -15,9 +14,8 @@ import CSV from './CSV';
       finten.password = process.env.PASSWORD as string;
     }
 
-    //ask FinTen to obtain a token
-    //the token will be obtained automatically if none is present, so this call
-    //is not necessary
+    //explicitly login; this is called automatically when requesting data if
+    //there is username and password info
     await finten.login();
 
     //request the list of available tickers

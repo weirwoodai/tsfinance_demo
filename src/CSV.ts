@@ -1,6 +1,6 @@
 class CSV {
   private _separator: string;
-  constructor(separator: string = ',') {
+  constructor(separator = ",") {
     this._separator = separator;
   }
 
@@ -25,7 +25,7 @@ class CSV {
           //make sure the headers of all the objects are the same
           const headers = Object.keys(d);
           if (!CSV.sameMembers(headersReference, headers)) {
-            throw new Error('Different amount of fields!');
+            throw new Error("Different amount of fields!");
           }
           //get the values of this object and construct a string separated by
           //the 'separator' character defined in this CSV
@@ -33,7 +33,7 @@ class CSV {
         },
         [headersReference.join(this.separator)]
       )
-      .join('\n');
+      .join("\n");
   }
 
   private static containsAll(a: string[], b: string[]) {
